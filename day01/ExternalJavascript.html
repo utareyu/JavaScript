@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 	<title>外部のJavaScript</title>
 	<script src="ExternalJavascript.js" defer></script>
 </head>
@@ -22,6 +24,20 @@
 		<button>click me 2(2)</button>
 		<button>click me 2(3)</button>
 		<p>どのボタンを押しても結果は同じ</p>
+		<code>ExternalJavascript.js</code>
+		<pre class="prettyprint linenums lang-js">
+function createParagraph() {
+	let para = document.createElement('p');
+	para.textContent = 'ボタンが押されました!';
+	document.body.appendChild(para);
+}
+
+const buttons = document.querySelectorAll('button');
+
+for(let i = 0; i < buttons.length ; i++) {
+	buttons[i].addEventListener('click', createParagraph);
+}
+</pre>
 <section>
 	<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#external_javascript"> 
 		https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#external_javascript </a></p>

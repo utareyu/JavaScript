@@ -8,6 +8,8 @@
 	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
 	<link href="WhatIsJavascript.css"rel="stylesheet">
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 	<script src="WhatIsJavascript.js" defer></script>
 	<title>JavaScriptとは何か</title>
 </head>
@@ -19,12 +21,32 @@
 		</div>
 	</header>
 	<main>
-		
+	<p>
+		html+cssでは出来ない動的なページを作るときに使う<br>
+		インタープリタ型の言語
+	</p>	
 	<section class="a">
-	<p class="fp">Player 1: Chris</p>
-	<h2>foo</h2>
+		<p class="fp">Player 1: Chris</p>
+		<h2>foo</h2>
 	</section>
 
+	<code>WhatIsJavascript.js</code>
+	<pre class="prettyprint linenums lang-js">
+const para = document.querySelector('.a > p');
+const fv = document.querySelector('.a > h2');
+
+para.addEventListener('click', updateName);
+fv.addEventListener('click', foover);
+
+function updateName() {
+	let name = prompt('名前を入力して下さい');
+	para.textContent = 'Player 1: ' + name;
+}
+
+function foover(){
+	fv.textContent = 'ver'
+}
+</pre>
 <section>
 	<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#高水準の定義"> 
 		https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#高水準の定義 </a></p>
