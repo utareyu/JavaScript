@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<title>内部のJavaScript</title>
+	<script>document.addEventListener("DOMContentLoaded", function() {
+		function createParagraph() {
+			let para = document.createElement('p');
+			para.textContent = 'ボタンが押されました!';
+			document.body.appendChild(para);
+		}
+	
+		const buttons = document.querySelectorAll('button');
+	
+		for(let i = 0; i < buttons.length ; i++) {
+			buttons[i].addEventListener('click', createParagraph);
+		}
+	});
+	</script>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>内部のJavaScript</h1>
+		</div>
+	</header>
+	<main>
+		<button>click me</button>
+<section>
+	<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#internal_javascript"> 
+		https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#internal_javascript </a></p>
+</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
