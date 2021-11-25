@@ -1,7 +1,9 @@
+const sand = document.querySelector('.sand');
+
 function createParagraph() {
   let para = document.createElement('p');
   para.textContent = 'ボタンが押されました!';
-  document.body.appendChild(para);
+  sand.appendChild(para);
 }
 
 const buttons = document.querySelectorAll('button');

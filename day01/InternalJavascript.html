@@ -12,10 +12,11 @@
 	<title>内部のJavaScript</title>
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
+		const sand = document.querySelector('.sand');
 		function createParagraph() {
 			let para = document.createElement('p');
 			para.textContent = 'ボタンが押されました!';
-			document.body.appendChild(para);
+			sand.appendChild(para);
 		}
 	
 		const buttons = document.querySelectorAll('button');
@@ -34,30 +35,36 @@
 		</div>
 	</header>
 	<main>
-		<button>click me</button><br>
-		<p class="memo">
-			header内に直接スクリプトを書くタイプ<br>
-			多分もう使わない<br>
-			<code>DOMContentLoaded</code>を付けるとbodyが完全に解析された後にスクリプトの実行が始まる<br>(たぶんasyncと同じ読み込まれ方をする)
-		</p>
-		<code>InternalJavascript.html</code>
+		<section class="sand">
+			<button>click me</button><br>
+			<p class="memo">
+				header内に直接スクリプトを書くタイプ<br>
+				多分もう使わない<br>
+				<code>DOMContentLoaded</code>を付けるとbodyが完全に解析された後にスクリプトの実行が始まる<br>(たぶんasyncと同じ読み込まれ方をする)
+			</p>
+		</section>
+		<section>
+			<code>InternalJavascript.html</code>
 			<pre class="prettyprint linenums:13 lang-html">
 &lt;script&gt;
 	document.addEventListener("DOMContentLoaded", function() {
+		const sand = document.querySelector('.sand');
 		function createParagraph() {
 			let para = document.createElement('p');
 			para.textContent = 'ボタンが押されました!';
-			document.body.appendChild(para);
+			sand.appendChild(para);
 		}
 
 		const buttons = document.querySelectorAll('button');
 
-		for(let i = 0; i < buttons.length ; i++) {
+		for(let i = 0; i &lt; buttons.length ; i++) {
 			buttons[i].addEventListener('click', createParagraph);
 		}
 	});
 &lt;/script&gt;
-</pre>
+</pre>			
+		</section>
+
 <section>
 	<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#internal_javascript"> 
 		https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#internal_javascript </a></p>

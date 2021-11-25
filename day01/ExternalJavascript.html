@@ -9,8 +9,9 @@
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
-	<title>外部のJavaScript</title>
 	<script src="ExternalJavascript.js" defer></script>
+	<!-- DOMを使うからdefer -->
+	<title>外部のJavaScript</title>
 </head>
 
 <body>
@@ -20,16 +21,21 @@
 		</div>
 	</header>
 	<main>
-		<button>click me 2</button>
-		<button>click me 2(2)</button>
-		<button>click me 2(3)</button>
-		<p class="memo">どのボタンを押しても結果は同じ</p>
-		<code>ExternalJavascript.js</code>
-		<pre class="prettyprint linenums lang-js">
+		<section class="sand">
+			<button>click me 2</button>
+			<button>click me 2(2)</button>
+			<button>click me 2(3)</button>
+			<p class="memo">どのボタンを押しても結果は同じ</p>
+		</section>
+		<section>
+			<code>ExternalJavascript.js</code>
+				<pre class="prettyprint linenums lang-js">
+const sand = document.querySelector('.sand');
+
 function createParagraph() {
 	let para = document.createElement('p');
 	para.textContent = 'ボタンが押されました!';
-	document.body.appendChild(para);
+	sand.appendChild(para);
 }
 
 const buttons = document.querySelectorAll('button');
@@ -38,10 +44,12 @@ for(let i = 0; i < buttons.length ; i++) {
 	buttons[i].addEventListener('click', createParagraph);
 }
 </pre>
-<section>
-	<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#external_javascript"> 
-		https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#external_javascript </a></p>
-</section>
+		</section>
+
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#external_javascript"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript#external_javascript </a></p>
+		</section>
 	</main>
 	<footer>
 		<p>(c)2021~ utareyu</p>

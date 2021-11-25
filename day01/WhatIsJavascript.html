@@ -24,27 +24,27 @@
 	<p class="memo">
 		html+cssでは出来ない動的なページを作るときに使う<br>
 		インタープリタ型の言語
-	</p>	
-	<section class="a">
+	</p>
+	<section class="sand">
 		<p class="fp">Player 1: Chris</p>
 		<h2>foo</h2>
 	</section>
 
 	<code>WhatIsJavascript.js</code>
 	<pre class="prettyprint linenums lang-js">
-const para = document.querySelector('.a > p');
-const fv = document.querySelector('.a > h2');
+const para = document.querySelector('.sand > p');
+const fv = document.querySelector('.sand > h2');
 
 para.addEventListener('click', updateName);
-fv.addEventListener('click', foover);
+fv.addEventListener('click', foobar);
 
 function updateName() {
 	let name = prompt('名前を入力して下さい');
 	para.textContent = 'Player 1: ' + name;
 }
 
-function foover(){
-	fv.textContent = 'ver'
+function foobar(){
+	fv.textContent = 'bar'
 }
 </pre>
 <section>
