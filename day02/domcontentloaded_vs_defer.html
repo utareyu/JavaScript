@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>domcontentloaded vs defer vs async</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>domcontentloaded vs defer vs async</h1>
+		</div>
+	</header>
+	<main>
+		<section>
+			<p class="memo">
+				ちょっと気になってたから調べたら結構複雑でびっくり<br>
+				やっぱりDOM配置に依存するJSには<code>defer</code>を使うほうがいい
+			</p>
+			<p>
+			<img src="kygKA.png" width="630px" style="background-color: #fff" alt="とってもわかりやすいJSがどこでロードされるか示した図">
+			</p>
+		</section>
+
+		<section>
+			<p>参考:
+				<ul>
+					<li><a href="https://qiita.com/mamosan/items/ff336b5cc0a1a95e03a7"> 
+				DOMContentLoaded周りの処理を詳しく調べてみました - Qiita </a></li>
+					<li><a href="https://www.kirupa.com/html5/running_your_code_at_the_right_time.htm"> 
+					Running Your JavaScript at the Right Time </a></li>
+				</ul>
+			</p>
+		</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
