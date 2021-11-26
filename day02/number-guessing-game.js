@@ -45,7 +45,6 @@ function checkGuess() {
 			lowOrHi.textContent = '値が大きいです';
 		}
 	}
-
   guessCount++;
   guessField.value = '';
   guessField.focus();

@@ -114,8 +114,8 @@ const lastResult = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
-//sandクラスの中に表示するために取得 getElementByClassだとエラーになった
-const sand = document.getElementById('sand');
+//sandクラスの中に表示するために取得
+const sand = document.querySelector('.sand');
 
 //変数の定義
 let randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -154,7 +154,6 @@ function checkGuess() {
 			lowOrHi.textContent = '値が大きいです';
 		}
 	}
-
 	guessCount++;
 	guessField.value = '';
 	guessField.focus();
