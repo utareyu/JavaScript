@@ -174,7 +174,7 @@
 				</p>
 				<p>
 					これで<code>lowOrHi</code>を見ると<code>Null</code><br>
-					さっきの宣言部をよく見るとクラスを選択しているように見えてドット（.）が抜けているからできていない<br>
+					さっきの宣言部をよく見るとクラスを選択しているように見えてドット（<code>.</code>）が抜けているからできていない<br>
 					ついでに93行目<code>addEventListener</code>の打ち間違いも潰しておく<br>
 				</p>
 			</div>
@@ -196,13 +196,13 @@
 					<pre class="prettyprint linenums:44 lang-js">let randomNumber = Math.floor(Math.random() * 100) + 1;</pre>
 					</p>
 				</p>
-				<p>これでバグ取りはおしまい</p>
 			</div>
+			<p>これでバグ取りはおしまい</p>
 			<h2>その他のよくあるエラー(FOE)</h2>
 			<div class="memo">
 				<p>
 					<code>SyntaxError: missing ; before statement</code><br>
-					末尾にセミコロン(;)がないよ
+					末尾にセミコロン(<code>;</code>)がないよ
 				</p>
 				<p>
 					<code>SyntaxError: missing ) after argument list</code><br>
@@ -214,13 +214,14 @@
 				</p>
 				<p>
 					<code>SyntaxError: missing : after property id</code><br>
-					オブジェクト初期化したいんだけどコロン(:)がないからプロパティのキーと値がどこにあるかわからないよ<br>
+					オブジェクト初期化したいんだけどコロン(<code>:</code>)がないからプロパティのキーと値がどこにあるかわからないよ<br>
 					(関数定義の時に閉じ括弧を忘れると出ることがある)
 				</p>
 				<p>
 					<code>SyntaxError: expected expression, got '[文字列]'</code><br>
 					<code>SyntaxError: unterminated string literal</code><br>
-					文字列がどこまでかわからないよ たぶん'[文字列]'になってないよ
+					文字列がどこまでかわからないよ たぶん'[文字列]'になってないよ<br>
+					(文字列の最後のクォーテーションの付け忘れ)
 				</p>
 			</div>
 		<section>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>変数</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>変数</h1>
+		</div>
+	</header>
+	<main>
+
+		<h2>変数とは</h2>
+		<div class="memo">
+			<p>ある値を保持しておくための入れ物のようなもの</p>
+			<p>変数の宣言<br>
+				<pre class="prettyprint lang-js">let a;</pre>
+			<p>変数の初期化<br>
+				<pre class="prettyprint lang-js">a = "hoge";</pre>
+			<p>変数の宣言と初期化を一度に<br>	
+				<pre class="prettyprint lang-js">let a = "hoge";</pre>
+		</div>
+
+		<h2>varとlet</h2>
+		<p class="memo">
+			変数を定義するときに<code>var</code>か<code>let</code>を使うことができる<br>
+			変数の宣言はコードを実行する前に処理される
+		</p>
+		<div class="memo">
+			<p><code>var</code>で宣言した場合</p>
+			<ul>
+				<li>どこで宣言していても実行時にはコードの先頭で宣言したものと同じになる→巻き上げ(hoisting)という</li>
+				<li>変数を再定義することができる</li>
+			</ul>
+			<p><code>let</code>で宣言した場合</p>
+			<ul>
+				<li>巻き上げが起こらない</li>
+				<li>変数を再定義することができない</li>
+			</ul>
+			<p class="note">巻き上げや再定義が起こるとコードの可視性が悪くなるのでできるだけ<code>let</code>を使う</p>
+		</div>
+
+		<h2>変数の命名</h2>
+		<div class="memo">
+			<p>一般的には英数字・アンダースコアだけ<br>小文字大文字を区別する</p>
+			<ul>
+				<li>日本語を使うな<br>アラビア語で変数名ついてたらそもそも読めないよ</li>
+				<li>絵文字を使うな<br>入力しづらいでしょ🤔</li>
+				<li>先頭にアンダースコアを使うな<br>一部のコンストラクターでエラーになることがある</li>
+				<li>先頭に数字を使うな<br>JavaScriptだと文法エラーになる</li>
+				<li>-(ハイフン)を使うな<br>文法エラー</li>
+				<li>予約語を使うな<br><code>var</code>とか<code>let</code>とか<code>function</code>とか<code>switch</code>とか</li>
+				<li>camelCaseにする<br>lowerCamelCaseともいう 小文字大文字を間違えないようにする点でも有利</li>
+			</ul>
+		</div>
+
+		<h2>データ型</h2>
+			<div class="memo">
+			<h3>数値型(number)</h3>
+				<p>
+					<ul>
+						<li>整数値・実数値を格納できる</li>
+						<li>データ型の宣言の必要はない</li>
+					</ul>
+					例：<pre class="prettyprint lang-js">let numberOne = 1;</pre>
+				</p>
+			</div>
+			<div class="memo">
+			<h3>文字列型(string)</h3>
+				<p>
+					<ul>
+						<li>文字をシングルクォーテーション(<code>'</code>)かダブルクォーテーション(<code>"</code>)で囲む</li>
+					</ul>
+					例：<pre class="prettyprint lang-js">let thatStrings = 'This is String';</pre>
+				</p>
+			</div>
+			<div class="memo">
+			<h3>真偽値(boolean)</h3>
+				<p>
+					<ul>
+						<li>真偽(<code>true</code>,<code>false</code>)いずれかを持つ</li>
+					</ul>
+					例：<pre class="prettyprint lang-js">let teaIsCute = true; //これは常に真なのであまりいい例えではない</pre>
+					<pre class="prettyprint lang-js">
+let lt = 5 &lt; 9; //変数の比較をしてフラグに使うとか
+console.log(lt);
+&gt;  true</pre>
+				</p>
+			</div>
+			<div class="memo">
+			<h3>配列(array)</h3>
+				<p>
+					<ul>
+						<li>角括弧(<code>[]</code>)内にカンマで区切って値を格納</li>
+						<li>インデックスは0から</li>
+					</ul>
+					例：<pre class="prettyprint lang-js">
+let memberOfShirokepu = ['うた','えりんぎ','しろる','紅茶'];
+console.log(memberOfShirokepu[2]);
+&gt;  しろる</pre>
+				</p>
+			</div>
+			<div class="memo">
+			<h3>オブジェクト(object)</h3>
+				<p>
+					<ul>
+						<li>現実のものをモデルとしたコードの構造</li>
+					</ul>
+					例：<pre class="prettyprint lang-js">
+let teapot = { func : '紅茶を注ぐ' , contents : 0 };
+console.log(teapot.func);
+teapot.contents+=500;
+console.log(teapot.contents);
+&gt;  紅茶を注ぐ
+&gt;  500</pre>
+				</p>
+			</div>
+			<h2>動的型付け</h2>
+			<div class="memo">
+				<p>変数の宣言時の型にこだわらず実行時の実際の値によって型が動的に変化していくこと<br>
+						ちなみにCは静的型付け
+				</p>
+				<p>
+					例：<pre class="prettyprint lang-js">
+let numberOne = '1';
+typeof numberOne; // "string"
+numberOne = 1;
+typeof numberOne; // "number"</pre>
+				</p>
+				<p class="note">
+					<code>typeof </code><br>
+					渡した変数の型を文字列で返す演算子
+				</p>
+			</div>
+			<h2>定数</h2>
+			<div class="memo">
+				<p>一度宣言されると変更できない値</p>
+				<p>宣言の前に<code>const</code>をつける<br>
+				constantの略
+				</p>
+					</ul>
+					例：<pre class="prettyprint lang-js">
+const hoursInDay = 24;
+hoursInDay = 240; //エラーになる</pre>
+			</div>
+
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Variables"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Variables </a></p>
+		</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
