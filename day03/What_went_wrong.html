@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>JavaScriptのトラブルシューティング</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>JavaScriptのトラブルシューティング</h1>
+		</div>
+	</header>
+	<main>
+		<h2>エラーの種類</h2>
+		<p>
+			どの言語にもつきもののエラー2種類
+			<div class="memo">
+				<ul>
+					<li>構文エラー</li>タイプミスとか書き方が違うのがこっち　エラーが出るからすぐわかる
+					<li>論理エラー</li>一通り動くけど結果が違うときはこっち　割と見つかりにくい
+				</ul>
+			</div>
+		</p>
+		<h2>数字当て（当たらない）ゲームのデバッグ</h2>
+
+		<section class="sand">
+			
+		</section>
+		<code>number-game-errors.html</code>
+		<pre class="prettyprint linenums lang-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot;&gt;
+
+		&lt;title&gt;Number guessing game&lt;/title&gt;
+
+		&lt;style&gt;
+			html {
+				font-family: sans-serif;
+			}
+			body {
+				width: 50%;
+				max-width: 800px;
+				min-width: 480px;
+				margin: 0 auto;
+			}
+			.lastResult {
+				color: white;
+				padding: 3px;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+			&lt;h1&gt;Number guessing game&lt;/h1&gt;
+
+			&lt;p&gt;We have selected a random number between 1 and 100. See if you can guess it in 10 turns or less. We&#039;ll tell you if your guess was too high or too low.&lt;/p&gt;
+
+&lt;div class=&quot;form&quot;&gt;
+	&lt;label for=&quot;guessField&quot;&gt;Enter a guess: &lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;guessField&quot; class=&quot;guessField&quot;&gt;
+	&lt;input type=&quot;submit&quot; value=&quot;Submit guess&quot; class=&quot;guessSubmit&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;resultParas&quot;&gt;
+	&lt;p class=&quot;guesses&quot;&gt;&lt;/p&gt;
+	&lt;p class=&quot;lastResult&quot;&gt;&lt;/p&gt;
+	&lt;p class=&quot;lowOrHi&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;script&gt;
+	let randomNumber = Math.floor(Math.random()) + 1;
+
+	const guesses = document.querySelector(&#039;.guesses&#039;);
+	const lastResult = document.querySelector(&#039;.lastResult&#039;);
+	const lowOrHi = document.querySelector(&#039;lowOrHi&#039;);
+	const guessSubmit = document.querySelector(&#039;.guessSubmit&#039;);
+	const guessField = document.querySelector(&#039;.guessField&#039;);
+
+	let guessCount = 1;
+	let resetButton;
+
+	function checkGuess() {
+
+		let userGuess = Number(guessField.value);
+		if(guessCount === 1) {
+			guesses.textContent = &#039;Previous guesses: &#039;;
+		}
+		guesses.textContent += userGuess + &#039; &#039;;
+
+		if(userGuess === randomNumber) {
+			lastResult.textContent = &#039;Congratulations! You got it right!&#039;;
+			lastResult.style.backgroundColor = &#039;green&#039;;
+			lowOrHi.textContent = &#039;&#039;;
+			setGameOver();
+		} else if(guessCount === 10) {
+			lastResult.textContent = &#039;!!!GAME OVER!!!&#039;;
+			setGameOver();
+		} else {
+			lastResult.textContent = &#039;Wrong!&#039;;
+			lastResult.style.backgroundColor = &#039;red&#039;;
+			if(userGuess &lt; randomNumber) {
+				lowOrHi.textContent = &#039;Last guess was too low!&#039;;
+			} else if(userGuess &gt; randomNumber) {
+				lowOrHi.textContent = &#039;Last guess was too high!&#039;;
+			}
+		}
+
+		guessCount++;
+		guessField.value = &#039;&#039;;
+		guessField.focus();
+	}
+	guessSubmit.addeventListener(&#039;click&#039;, checkGuess);
+
+	function setGameOver() {
+		guessField.disabled = true;
+		guessSubmit.disabled = true;
+		resetButton = document.createElement(&#039;button&#039;);
+		resetButton.textContent = &#039;Start new game&#039;;
+		document.body.appendChild(resetButton);
+		resetButton.addeventListener(&#039;click&#039;, resetGame);
+	}
+
+	function resetGame() {
+		guessCount = 1;
+
+		const resetParas = document.querySelectorAll(&#039;.resultParas p&#039;);
+		for(let i = 0; i &lt; resetParas.length; i++) {
+			resetParas[i].textContent = &#039;&#039;;
+		}
+		resetButton.parentNode.removeChild(resetButton);
+
+		guessField.disabled = false;
+		guessSubmit.disabled = false;
+		guessField.value = &#039;&#039;;
+		guessField.focus();
+
+		lastResult.style.backgroundColor = &#039;white&#039;;
+
+		randomNumber = Math.floor(Math.random()) + 1;
+	}
+&lt;/script&gt;
+&lt;/html&gt;
+</pre>
+			<h3>構文エラー</h3>
+			<p class="memo">
+				<code style="color: red;">TypeError: guessSubmit.addeventListener is not a function	number-game-errors.html:85:15</code><br>
+				number-game-errors.html の85行15文字目でエラーがあるよって言う見かたをする<br>
+				これは<code>addEventListener</code>の打ち間違い(構文エラー)<br>
+				JavaScriptは関数名の大文字小文字を区別するから注意
+			</p>
+			<div class="memo">
+				<p>
+					<code style="color: red;">TypeError: lowOrHi is null	number-game-errors.html:77:7</code><br>
+					77行目<code>lowOrHi</code>の<code>TextContent</code>に値を設定しようとしてエラー<br>
+				</p>
+				<p>
+					コードの最初から辿って最初に<code>lowOrHi</code>が出てくる宣言部
+					<pre class="prettyprint linenums:48 lang-js">const lowOrHi = document.querySelector('lowOrHi');</pre>
+				</p>
+				<p>
+					<code>console.log()</code><br>
+					括弧内に書いた変数の値をコンソールに出力する関数
+				</p>
+				<p>
+					これで<code>lowOrHi</code>を見ると<code>Null</code><br>
+					さっきの宣言部をよく見るとクラスを選択しているように見えてドット（.）が抜けているからできていない<br>
+					ついでに93行目<code>addEventListener</code>の打ち間違いも潰しておく<br>
+				</p>
+			</div>
+			<h3>論理エラー</h3>
+			<div class="memo">
+				<p>
+					実はこのゲームは予想する値が常に1になっている欠陥品<br>
+					<pre class="prettyprint linenums:44 lang-js">let randomNumber = Math.floor(Math.random()) + 1;</pre>
+				</p>
+				<p>
+				<code>Math.random()</code>と<code>Math.floor()</code>関数の入れ子に1を足してそれを<code>randomNumber</code>としている<br>
+				<code>Math.random()</code>は0以上1未満の乱数を返す関数
+				<code>Math.floor()</code>は括弧内の値の少数点以下を切り捨てる関数<br>
+				つまり0以上1未満の乱数の少数点以下を切り捨ててそれに1を足したものを代入<br>
+				これじゃあ常に1になる
+					<p>
+						<code>Math.random()</code>に100をかけて0以上100未満の乱数が出て来るようにする<br>
+						その小数点以下を切り捨てそれに1を足すことで1以上101未満(100以下)の整数を取り出す<br>
+					<pre class="prettyprint linenums:44 lang-js">let randomNumber = Math.floor(Math.random() * 100) + 1;</pre>
+					</p>
+				</p>
+				<p>これでバグ取りはおしまい</p>
+			</div>
+			<h2>その他のよくあるエラー(FOE)</h2>
+			<div class="memo">
+				<p>
+					<code>SyntaxError: missing ; before statement</code><br>
+					末尾にセミコロン(;)がないよ
+				</p>
+				<p>
+					<code>SyntaxError: missing ) after argument list</code><br>
+						関数とかメソッドの閉じ括弧がないよ
+				</p>
+				<p>
+					<code>SyntaxError: missing } after function body</code><br>
+					関数の末尾の閉じ波括弧がないよ
+				</p>
+				<p>
+					<code>SyntaxError: missing : after property id</code><br>
+					オブジェクト初期化したいんだけどコロン(:)がないからプロパティのキーと値がどこにあるかわからないよ<br>
+					(関数定義の時に閉じ括弧を忘れると出ることがある)
+				</p>
+				<p>
+					<code>SyntaxError: expected expression, got '[文字列]'</code><br>
+					<code>SyntaxError: unterminated string literal</code><br>
+					文字列がどこまでかわからないよ たぶん'[文字列]'になってないよ
+				</p>
+			</div>
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_went_wrong"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_went_wrong </a></p>
+		</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
