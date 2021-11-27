@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>数値と演算子</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>数値と演算子</h1>
+		</div>
+	</header>
+	<main>
+
+		<h2>数値の種類</h2>
+		<div class="memo">
+			<p>
+				<ul>
+					<li>整数(integer)<br>小数を持たない数</li>
+					<li>浮動小数点(float)<br>小数を持つ数</li>
+					<li>倍制度浮動小数点(double)<br>ふつうの浮動小数点より精度が倍</li>
+				</ul>
+			</p>
+			<p>
+				二進数　　: 1011 0101 0011 1010<br>
+				八進数　　: 132472<br>
+				十六進数　: B53A
+			</p>
+			<p class="note">JavaScriptだと整数も倍制度浮動小数点も<code>Number</code>型</p>
+			<p>(<code>Bignum</code>型はまだとっておく)</p>
+			</p>
+		</div>
+
+		<h2>いろんなNumberメソッド</h2>
+		<div class="memo">
+			<p><code>toFixed()</code></p>
+			<p>小数点以下を何桁にするかを括弧内で決めて丸める<br>
+				どういう規則なのかはよくわからなかった<br>
+				小数部が0になっても桁を出す</p>
+				<pre class="prettyprint lang-js">
+function num(x) {
+	return Number.parseFloat(x).toFixed(2) ;
+}
+
+console.log(num(123.446));
+console.log(num(21.124));
+console.log(num(0.555));
+console.log(num(1.000));
+console.log(num(1.555));
+&gt;  "123.45"
+&gt;  "21.12"
+&gt;  "0.56"
+&gt;  "1.00"
+&gt;  "1.55"</pre>
+			</div>
+			<div class="memo">
+				<p><code>Number()</code></p>
+				<p>文字の数字を数値の数字に変換したりする<br>
+					<pre class="prettyprint lang-js">
+let num = '1';
+console.log(num + 1);
+&gt;  11 //文字列型のnumに数値型の1を足そうとした時に型変換が起きて文字列結合になっている
+</pre>
+					<pre class="prettyprint lang-js">
+let num = '1';
+console.log(Number(num) + 1);
+&gt;  2 //数値型に変換して数値演算
+</pre>
+				</p>
+			</div>
+
+			<h2>算術演算子</h2>
+			<div class="memo">
+				<p>
+					<ul>
+						<li>加算 <code>+</code></li>
+						<li>減算 <code>-</code></li>
+						<li>乗算 <code>*</code></li>
+						<li>除算 <code>/</code></li>
+						<li>余剰 <code>%</code></li>
+						<li>指数 <code>**</code></li>
+					</ul>
+				</p>
+			</div>
+			<h3>演算子の優先順位</h3>
+			<p class="memo"><code>50 + 10 / 8 + 2;</code><br>
+			これの計算結果は53.25<br>
+			なぜなら演算する順序が括弧内→乗除算→加減算の順だから<br>
+			計算結果を6にしたければ<code>(50 + 10) / (8 + 2);</code>とする<br>
+			</p>
+			<p>常識</p>
+
+			<h2>インクリメントとデクリメント</h2>
+			<div class="memo">
+				<p><code>++</code>と<code>--</code><br>
+					<code>for</code>文とか配列とかポインタでよくお世話になる
+				</p>
+				<p>
+				<pre class="prettyprint lang-js">
+let num = 4;
+num1++; //4
+</pre><br>
+					???<br>
+					どうやらブラウザが変数の値を返してからインクリメントしているらしい<br></p>
+					<p class="note">変数の前に<code>++</code>を置くとインクリメントしてから値を返すようにできる</p>
+				<pre class="prettyprint lang-js">
+let num = 4;
+++num1; //5
+</pre>
+			</div>
+
+			<h2>代入演算子</h2>
+			<p class="memo">
+				<code>+=</code>とか<code>-=</code>とか<code>*=</code>とか<code>/=</code>とか<br>
+				左辺の値に右辺の値を(加|減|乗|除)算してから代入
+			</p>
+			
+			<h2>比較演算子</h2>
+			<div class="memo">
+				<p>
+					<ul>
+						<li><code>===</code><br>左右の値が厳密に等しいか判定</li>
+						<li><code>!==</code><br>左右の値が厳密に等しくないか判定</li>
+						<li><code>&lt;</code><br>左辺の値が右辺より小さいか判定</li>
+						<li><code>&gt;</code><br>左辺の値が右辺より大きいか判定</li>
+						<li><code>&lt;=</code><br>左辺の値が右辺の値以下か判定</li>
+						<li><code>&gt;=</code><br>左辺の値が右辺の値以上か判定</li>
+					</ul>
+					<p class="note">厳密な判定<code>===</code>と普通の判定<code>==</code>の違いはデータ型まで見るかどうか</p>
+					<code>1 === '1'</code>はfalseになるけど<code>1 == '1'</code>はtrueになる<br>
+					こんなエラーを防ぐために厳密な判定を使うほうがいい
+				</p>
+			</div>
+			
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Math"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Math </a></p>
+		</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
