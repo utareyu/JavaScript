@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>文字列</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>文字列</h1>
+		</div>
+	</header>
+	<main>
+		<h2>文字列の基本</h2>
+		<div class="memo">
+			<h3>文字列を作る</h3>
+			<p>変数を宣言して<code>'</code>か<code>"</code>で囲って代入</p>
+			<pre class="prettyprint lang-js">
+let string = '文字列';
+console.log(string);
+typeof string;
+&gt;  文字列
+&gt;  "string"</pre>
+		<h3>シングルクォーテーションとダブルクォーテーション</h3>
+		<p>JavaScriptではシングルダブルどちらで囲っても文字列として認識される<br>
+		囲っているものと同じ種類のクォーテーションは文字列に含めることができない</p>
+		<h3>文字列のエスケープ</h3>
+		<p class="note">バックスラッシュ(<code>\</code>)をクォーテーションの前に置くと文字として認識させることができる（エスケープ）</p>
+		<pre class="prettyprint lang-js">
+let st = 'rock \'n\' roll';
+st;
+&gt;  "rock 'n' roll"</pre>
+		</div>
+			<h2>文字列結合</h2>
+			<div class="memo">
+			<p>文字列の間に(<code>+</code>)を置くと文字列を結合することができる<br>
+				複数の変数や文字列を混ぜてもよい</p>
+				<p class="note"><code>'</code>や<code>"</code>で囲った実際の文字列のことを文字列リテラルと呼ぶ</p>
+			<pre class="prettyprint lang-js">
+let a = 'おひさし';
+let b = 'ぶり';
+let c = '大根';
+let multi;
+multi = a + b;
+console.log(multi);
+multi = a + b + b + 'ブリ' + c;
+console.log(multi);
+&gt;  おひさしぶり
+&gt;  おひさしぶりぶりブリ大根
+</pre>
+		</div>
+		<h2>文字列と数字の結合</h2>
+		<div class="memo">
+			<p>文字列と数値を結合しようとすると文字列になって返ってくる</p>
+			<pre class="prettyprint lang-js">
+let a = '123';
+let b = '321';
+let c = 123;
+let d = 321;
+let multi;
+multi = a + b; //文字列+文字列
+console.log(multi);
+multi = a + d; //文字列+数値
+console.log(multi);
+multi = c + b; //数値+文字列
+console.log(multi);
+multi = c + d; //数値+数値
+console.log(multi);
+&gt;  string123321
+&gt;  string123321
+&gt;  string123321
+&gt;  number444
+</pre><br>
+			<p class="note"><code>Number</code><br>
+			渡されたものを数値に変換するオブジェクト</p>
+			<p class="note"><code>toString()</code><br>
+			渡されたものを文字列に変換するメソッド</p>
+			<pre class="prettyprint lang-js">
+// さっきの続きから
+multi = number(a) + c;
+console.log(multi);
+multi = b + d.toString();
+console.log(multi);
+&gt;  246
+&gt;  321321
+		</div>
+		<h2>テンプレートリテラル</h2>
+		<div class="memo">
+			<p>変数と文字列の文字列結合の時に少し記述が楽になる方法</p>
+			<p class ="note">文字列をバッククォート(<code>`</code>)で囲み、変数や式を含める場合はプレースホルダー<code>${ }</code>で囲む<br>
+			改行も<code>\n</code>を使わずにそのまま改行すれば表現できる</p>
+<pre class="prettyprint lang-js">
+let score = 58;
+let max = 80;
+let out;
+out = '今回のテストの点数は' + score + '点だった。\nつまり問題の' + (score/max*100) + '%が解けたことになる'; 
+console.log(out);
+out = `今回のテストの点数は${score}点だった。
+つまり問題の${score/max*100}%が解けたことになる`;
+console.log(out);
+&gt;  今回のテストの点数は58点だった。
+   つまり問題の72.5%が解けたことになる
+&gt;  今回のテストの点数は58点だった。
+   つまり問題の72.5%が解けたことになる
+// どちらも同じ結果
+</pre>
+		</div>
+
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Strings"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Strings </a></p>
+		</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
