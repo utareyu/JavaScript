@@ -96,8 +96,7 @@
 		&lt;div class=&quot;container&quot;&gt;
 			&lt;p class=&quot;main-text&quot;&gt;Theme&lt;/p&gt;
 			&lt;p class=&quot;sub-text b&quot;&gt;Color&lt;/p&gt; 
-			&lt;p class=&quot;sub-text&quot;&gt;reference:
-			&lt;a class=&quot;code&quot; href=&quot;https://tech-blog.cloud-config.jp/2020-12-04-web-theme-color/#それってどうやるんですの」・ω・」&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;これってどうやるんですの(」・&omega;・)」&lt;/a&gt;
+			&lt;p class=&quot;sub3&quot;&gt;Paragraph&lt;/p&gt;
 			&lt;/p&gt;
 		&lt;/div&gt;
 		
@@ -116,24 +115,24 @@
 
 /* theme color */
 :root[theme=&#039;LIGHT&#039;] {
-	--color-container:#F5F5F5;
-	--color-main:#6D4C41;
-	--color-sub:#FF9800;
-	--color-a:#000;
+	--color-container: #F5F5F5;
+	--color-main: #6D4C41;
+	--color-sub: #FF9800;
+	--color-p: #000;
 }
 
 :root[theme=&#039;BLUE&#039;] {
-	--color-container:#0f3057;
-	--color-main:#64B5F6;
-	--color-sub:#F5F5F5;
-	--color-a:aliceblue;
+	--color-container: #0f3057;
+	--color-main: #64B5F6;
+	--color-sub: #F5F5F5;
+	--color-p: aliceblue;
 }
 
 :root[theme=&#039;BLACK&#039;] {
-	--color-container:#000;
-	--color-main:#64B5F6;
-	--color-sub:#F5F5F5;
-	--color-a:#fff;
+	--color-container: #000;
+	--color-main: #64B5F6;
+	--color-sub: #F5F5F5;
+	--color-p: #fff;
 }
 
 .container {
@@ -164,8 +163,10 @@
 	font-size: 50px;
 }
 
-a{
-	color: var(--color-a);
+.sub3{
+	font-family: consolas, monospace;
+	font-size: 20px;
+	color: var(--color-p);
 }
 
 .button-container {

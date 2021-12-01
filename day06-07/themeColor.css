@@ -3,23 +3,23 @@
 /* theme color */
 :root[theme='LIGHT'] {
   --color-container: #F5F5F5;
-  --color-main:#6D4C41;
+  --color-main: #6D4C41;
   --color-sub: #FF9800;
-	--color-a: #000;
+	--color-p: #000;
 }
 
 :root[theme='BLUE'] {
   --color-container: #0f3057;
-  --color-main:#64B5F6;
+  --color-main: #64B5F6;
   --color-sub: #F5F5F5;
-	--color-a: aliceblue;
+	--color-p: aliceblue;
 }
 
 :root[theme='BLACK'] {
   --color-container: #000;
-  --color-main:#64B5F6;
+  --color-main: #64B5F6;
   --color-sub: #F5F5F5;
-	--color-a: #fff;
+	--color-p: #fff;
 }
 
 .container {
@@ -50,8 +50,10 @@
   font-size: 50px;
 }
 
-a{
-	color: var(--color-a);
+.sub3{
+	font-family: consolas, monospace;
+	font-size: 20px;
+	color: var(--color-p);
 }
 
 .button-container {
