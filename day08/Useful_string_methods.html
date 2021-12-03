@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://utareyu.github.io/themeColor.js"></script>
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>文字列メソッド</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>文字列メソッド</h1>
+		</div>
+	</header>
+	<main>
+		<h2>いろんなプロパティとメソッド</h2>
+		<h3>プロパティー</h3>
+		<p class="memo">
+			<code>length</code><br>
+			文字列の長さを返す
+		</p>
+		<h3>メソッド</h3>
+		<p class="memo">
+			<code>String[0]</code><br>
+			文字列の角括弧で指定した位置の文字を返す(0から開始)
+		</p>
+		<div class="memo">
+			<p>
+				<code>indexOf()</code><br>
+				<pre class="prettyprint lang-js">String.indexOf('pattern')</pre>
+				<code>String</code>に<code>'Pattern'</code>が含まれているか探索を行う<br>
+				見つかった場合は検索文字列が始まる位置を返す<br>
+				見つからなかった場合は-1を返す
+			</p>
+		</div>
+		<div class="memo">
+			<p>
+				<code>slice()</code><br>
+				<pre class="prettyprint lang-js">String.slice(x,y)</pre>
+				<code>String</code>の<code>x</code>文字目から<code>y</code>文字目の直前までを返す<br>
+				2番目の引数は省略可能であり、省略した場合は文字列の最後までを返す
+				<p class="note">Excelの<code>mid()</code>とは動作が違う</p>
+			</p>
+		</div>
+		<div class="memo">
+			<p>
+				<code>toLowerCase()</code><br>
+				<code>toUpperCase()</code><br>
+				<pre class="prettyprint lang-js">
+let Data = 'UPPERCASE lowercase';
+Data.toLowerCase(); //uppercase lowercase
+Data.toUpperCase(); //UPPERCASE LOWERCASE
+</pre>
+				渡された文字列の全ての文字を大文字・小文字に変換する
+			</p>
+		</div>
+		<div class="memo">
+			<p>
+				<code>replace()</code><br>
+				<pre class="prettyprint lang-js">String.replace(x,y)</pre>
+				<code>String</code>の<code>x</code>を<code>y</code>に置き換える<br>
+				2番目の引数は省略可能であり、省略した場合は文字列の最後までを返す
+				<p class="note">Excelの<code>mid()</code>とは動作が違う</p>
+			</p>
+		</div>
+		<p>
+			以上のメソッドの戻りを代入させることでメソッドの結果を反映させることが出来る
+		</p>
+
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Useful_string_methods"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Useful_string_methods </a></p>
+		</section>
+	</main>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
