@@ -22,8 +22,13 @@
 	<main>
 		五日坊主ではないです
 		<h2>成果物</h2>
-		<div style="text-align: center;">
-			<iframe width="70%" height="350px" src="themeColor.html"></iframe><br>
+		<div style="margin:0 10vw;">
+			<p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="rNGVgBz" data-user="utareyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+				<span>See the Pen <a href="https://codepen.io/utareyu/pen/rNGVgBz">
+				themeColor</a> by utareyu (<a href="https://codepen.io/utareyu">@utareyu</a>)
+				on <a href="https://codepen.io">CodePen</a>.</span>
+			</p>
+			<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 		</div>
 		<h2>使ったもの</h2>
 		<ul>
@@ -48,7 +53,7 @@
 			</ul>
 		</ul>
 		<h2 id="codeh1">コード</h2>
-		<a href="#code">長すぎるので下に移動</a>
+		<p>CodePenの中見てね</p>
 		<h2>説明</h2>
 		<p>
 			<code>themeColor.html</code><br>
@@ -77,166 +82,6 @@
 				　　　https://blog.capilano-fw.com/?p=5341#i-7 </a><br>
 			<a href="https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage"> 
 				　　　https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage </a></p>
-		</section>
-		<section id="code">
-			<p>コード本体　<a href="#codeh1">上に移動</a></p>
-			<code>themeColor.html</code>
-			<pre class="prettyprint linenums lang-html">
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-	&lt;meta charset=&quot;UTF-8&quot;&gt;
-	&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-	&lt;title&gt;themeColor&lt;/title&gt;
-	&lt;script src=&quot;themeColor.js&quot;&gt;&lt;/script&gt;
-	&lt;link href=&quot;themeColor.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;/head&gt;
-
-	&lt;body&gt;
-		&lt;div class=&quot;container&quot;&gt;
-			&lt;p class=&quot;main-text&quot;&gt;Theme&lt;/p&gt;
-			&lt;p class=&quot;sub-text b&quot;&gt;Color&lt;/p&gt; 
-			&lt;p class=&quot;sub3&quot;&gt;Paragraph&lt;/p&gt;
-			&lt;/p&gt;
-		&lt;/div&gt;
-		
-		&lt;!-- button --&gt;
-		&lt;div class=&quot;button-container&quot;&gt;
-			&lt;div class=&quot;button&quot; onclick=&quot;changeLight()&quot; style=&quot;background: #F5F5F5; color: #000;&quot;&gt;LIGHT&lt;/div&gt;
-			&lt;div class=&quot;button&quot; onclick=&quot;changeBlue()&quot; style=&quot;background: #0f3057; color: #F5F5F5;&quot;&gt;BLUE&lt;/div&gt;
-			&lt;div class=&quot;button&quot; onclick=&quot;changeBlack()&quot; style=&quot;background: #000; color: #F5F5F5;&quot;&gt;BLACK&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</pre><br>
-			<code>themeColor.css</code>
-			<pre class="prettyprint linenums lang-css">
-@charset &quot;utf-8&quot;;
-
-/* theme color */
-:root[theme=&#039;LIGHT&#039;] {
-	--color-container: #F5F5F5;
-	--color-main: #6D4C41;
-	--color-sub: #FF9800;
-	--color-p: #000;
-}
-
-:root[theme=&#039;BLUE&#039;] {
-	--color-container: #0f3057;
-	--color-main: #64B5F6;
-	--color-sub: #F5F5F5;
-	--color-p: aliceblue;
-}
-
-:root[theme=&#039;BLACK&#039;] {
-	--color-container: #000;
-	--color-main: #64B5F6;
-	--color-sub: #F5F5F5;
-	--color-p: #fff;
-}
-
-.container {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: calc(100% - 100px);
-	padding: 30px;
-	background: var(--color-container);
-}
-
-.main-text {
-	color: var(--color-main);
-	font-weight: 100;
-	font-size: 50px;
-	margin: 0 15px 0 0;
-}
-
-.sub-text {
-	color: var(--color-sub);
-}
-
-.sub-text.b{
-	margin: -20px 0 0 15vw;
-	font-weight: 900;
-	font-size: 50px;
-}
-
-.sub3{
-	font-family: consolas, monospace;
-	font-size: 20px;
-	color: var(--color-p);
-}
-
-.button-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100px;
-	padding: 30px;
-	background: #000;
-}
-
-.button {
-	position: relative;
-	display: inline-block;
-	width: calc(33% - 2vw);
-	margin: 1vw;
-	border: #c5c5c5 solid 2px;
-	padding: 10px 0;  
-	border-radius: 20px;
-	font-size: 12px;
-	background-color: #FFF;
-	font-size: 18px;
-	font-weight: 900;
-	text-align: center;
-	cursor: pointer;
-}
-
-/* Initial setting */
-html {
-	font-family: consolas, sans-serif;
-	width: 100%;
-	height: 100vh;
-}
-
-body {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-</pre><br>
-			<code>themeColor.js</code>
-			<pre class="prettyprint linenums lang-js">
-if (localStorage.getItem(&#039;LStheme&#039;) === null){
-	changeBlue();
-} else {
-	document.documentElement.setAttribute(&#039;theme&#039;, localStorage.getItem(&#039;LStheme&#039;));
-}
-
-console.log(localStorage.getItem(&#039;LStheme&#039;));
-
-function changeLight() {
-	localStorage.setItem(&#039;LStheme&#039;,&#039;LIGHT&#039;);
-	document.documentElement.setAttribute(&#039;theme&#039;, &quot;LIGHT&quot;);
-}
-
-function changeBlue() {
-	localStorage.setItem(&#039;LStheme&#039;,&#039;BLUE&#039;);
-	document.documentElement.setAttribute(&#039;theme&#039;, &quot;BLUE&quot;);
-}
-
-function changeBlack() {
-	localStorage.setItem(&#039;LStheme&#039;,&#039;BLACK&#039;);
-	document.documentElement.setAttribute(&#039;theme&#039;, &quot;BLACK&quot;);
-}
-</pre>
 		</section>
 	</main>
 	<footer>
