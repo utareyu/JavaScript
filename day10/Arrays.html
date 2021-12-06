@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://utareyu.github.io/themeColor.js"></script>
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>配列</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>配列</h1>
+		</div>
+	</header>
+	<main>
+		<h2>配列って何</h2>
+		<p>リストみたいなオブジェクトで複数の変数をどのデータ型を混ぜても格納できる<br>
+		インデックスの開始は0から</p>
+		<pre class="prettyprint lang-js">let member = ['うた', 'えりんぎ', 'しろる', '紅茶'];</pre>
+		<h2>項目の取得と変更</h2>
+		
+		<pre class="prettyprint lang-js">
+//続き
+member[0]; //うた
+member[1] = 'しょた';
+member; //'うた', 'しょた', 'しろる', '紅茶'
+</pre>
+		<h2>配列のプロパティ</h2>
+		<div class="memo">
+			<p>
+				<code>length</code><br>
+				配列の要素数を返す<br>
+				配列の全要素をループするために使ったりする
+				<pre class="prettyprint lang-js">
+//続き
+for(let i=0;i&lt;member.length;i++){
+	console.log(member[i]);
+}
+
+&gt;  うた
+&gt;  しょた
+&gt;  しろる
+&gt;  紅茶
+</pre>
+			</p>
+		</div>
+		<h2>配列のメソッド</h2>
+		<div class="memo">
+			<p>
+				<code>split()</code><br>
+				引数として取った変数・文字列の括弧内の文字を区切りとした配列の要素を返す
+				<pre class="prettyprint lang-js">
+let kami = 'あかまきがみあおまきがみきまきがみ';
+let arr = kami.split('き');
+for(let i=0;i&lt;arr.length;i++){
+	console.log(arr[i]);
+}
+
+&gt;  あかま
+&gt;  がみあおま
+&gt;  がみ
+&gt;  ま
+&gt;  がみ
+</pre>
+			</p>
+		</div>
+		<div class="memo">
+			<p>
+				<code>join()</code><br>
+				引数として取った配列を指定した文字列・変数で結合した文字列を返す
+				<pre class="prettyprint lang-js">
+let kami = ['あかまきがみ','あおまきがみ','きまきがみ'];
+console.log(kami.join()); //toStringメソッドを使っても同じ
+console.log(kami.join(','));
+console.log(kami.join(''));
+console.log(kami.join('、'));
+
+&gt;  あかまきがみ,あおまきがみ,きまきがみ
+&gt;  あかまきがみ,あおまきがみ,きまきがみ
+&gt;  あかまきがみあおまきがみきまきがみ
+&gt;  あかまきがみ、あおまきがみ、きまきがみ
+</pre>
+			</p>
+		</div>
+		<div class="memo">
+			<p>
+				<code>push()</code><br>
+				配列の末尾に括弧内の要素を追加する<br>戻り値は新しい配列の長さ
+				<pre class="prettyprint lang-js">
+let color = ['あか','あお','きいろ'];
+let color5 = color.push('しろ','くろ');
+color5; //5 配列は['あか','あお','きいろ','しろ','くろ']
+</pre>
+			</p>
+		</div>
+		<div class="memo">
+			<p>
+				<code>pop()</code><br>
+				配列の末尾の要素を削除する<br>戻り値は削除された要素
+				<pre class="prettyprint lang-js">
+//続き
+let ret = color5.pop();
+console.log(ret);
+
+&gt;  くろ
+</pre>
+			</p>
+		</div>
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays </a></p>
+		</section>
+	</main>
+	<p style="text-align: center;"><a href="../index.html">learnJS Home</a></p>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
