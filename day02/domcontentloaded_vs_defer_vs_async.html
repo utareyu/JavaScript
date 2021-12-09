@@ -8,8 +8,6 @@
 	<script src="https://utareyu.github.io/themeColor.js"></script>
 	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
-	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 	<title>DOMContentLoaded vs defer vs async</title>
 </head>
 
@@ -21,21 +19,23 @@
 	</header>
 	<main>
 		<section>
-			<p class="memo">
+			<p>
 				ちょっと気になってたから調べたら結構複雑でびっくり<br>
 				やっぱりDOM配置に依存するJSには<code>defer</code>を使うほうがいい
 			</p>
-			<section class="memo">
+			<section>
 				<p>
 				<img src="kygKA.png" width="630px" style="background-color: #fff" alt="とってもわかりやすいJSがどこでロードされるか示した図">
 				</p>
-				<ul>
-					<li>スクリプトの参照をDOMの下、bodyを閉じる要素の真上に配置する。</li>
-					<li>他の人が使うようなライブラリを作っているのでなければ、<code>DOMContentLoaded</code>や<code>load</code>イベントをリッスンする必要はない。</li>
-					<li>外部ファイルを参照しているスクリプトに<code>defer</code>属性をつける。</li>
-					<li>DOMの読み込みに依存せず、ドキュメント内の他のスクリプトの動作を確認するために実行するコードがある場合は、
-						スクリプトをページの先頭に配置し、<code>async</code>属性を設定することができる。</li>
-				</ul>
+				<div class="cf">
+					<ul>
+						<li>スクリプトの参照をDOMの下、bodyを閉じる要素の真上に配置する。</li>
+						<li>他の人が使うようなライブラリを作っているのでなければ、<code>DOMContentLoaded</code>や<code>load</code>イベントをリッスンする必要はない。</li>
+						<li>外部ファイルを参照しているスクリプトに<code>defer</code>属性をつける。</li>
+						<li>DOMの読み込みに依存せず、ドキュメント内の他のスクリプトの動作を確認するために実行するコードがある場合は、
+							スクリプトをページの先頭に配置し、<code>async</code>属性を設定することができる。</li>
+					</ul>
+				</div>
 				<p>
 					原文だと teeing things off だけど多分 <b>seeing</b> things off の打ち間違い
 				</p>
