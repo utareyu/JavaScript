@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://utareyu.github.io/themeColor.js"></script>
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>条件分岐</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>条件分岐</h1>
+		</div>
+	</header>
+	<main>
+		<h2>if else</h2>
+		<p>よくある条件分岐</p>
+		<pre class="prettyprint lang-js">
+if (式1){
+	式1が真のとき実行
+} else if (式2){
+	式1が負で式2が真のとき実行
+} else {
+	式2が負のとき実行
+}</pre>
+		<h2>論理演算子</h2>
+		<ul>
+			<li><code>&&</code> AND演算子</li>
+			<li><code>||</code> OR演算子</li>
+		</ul>
+		<h2>switch</h2>
+		<p></p>
+		<pre class="prettyprint lang-js">
+switch (式1){
+	case 条件1:
+		条件1に合致する時実行;
+		break;
+	case 条件2:
+		条件2に合致する時実行;//breakを書かないと下にある処理も実行する
+	case 条件3:
+		条件3に合致する時実行;
+		break;
+	default:
+		全部外れたとき;
+		break;
+}
+</pre>
+		<h2>条件（三項）演算子</h2>
+		<p>ifいっこだけの時にショートカットできる</p>
+		<pre class="prettyprint lang-js">
+(式) ? 式が真のとき実行 : 式が負の時実行 ;
+</pre>
+
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/conditionals"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/conditionals </a></p>
+		</section>
+	</main>
+	<p style="text-align: center;"><a href="../index.html">learnJS Home</a></p>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
