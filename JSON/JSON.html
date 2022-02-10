@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://utareyu.github.io/themeColor.js"></script>
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<title>JSON</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>JSON</h1>
+		</div>
+	</header>
+	<main>
+		<h2>JSONってなに</h2>
+		<p>
+			JavaScript Object Notationの略 
+			構造化されたデータをオブジェクトみたいに書ける<br>
+			サーバーからクライアントへのデータ転送とかに使ったりする しろけぷ発言まとめがまさにそう<br>
+			JSONを扱いたいときはJavaScriptオブジェクトに変換する必要がある
+		<h2>JSONの構造</h2>
+		<p>JSで使えるデータ型がまんま使える 
+		全体を角括弧で覆って配列みたいにもできる<br>
+		<h3>注意点</h3>
+		<ul>
+			<li>メソッドは含めることができない</li>
+			<li>文字列はダブルクォーテーション<code>"</code>で囲む</li>
+		</ul></p>
+		</p>
+		<h2>生JSONの扱い方</h2>
+		<div class="note">
+			<code>JSON.parse(text)</code>
+			<p>文字<code>text</code>をJSONとして解析<br>
+				戻り値はオブジェクト, 配列, 文字列, 数値, 論理値, null のいずれか</p>
+		</div>
+
+		<section>
+			<p>参考:<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON"> 
+				https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON </a></p>
+		</section>
+	</main>
+	<p style="text-align: center;"><a href="../index.html">learnJS Home</a></p>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
